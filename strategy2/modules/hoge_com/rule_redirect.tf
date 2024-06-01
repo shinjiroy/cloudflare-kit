@@ -14,11 +14,11 @@ resource "cloudflare_ruleset" "redirect_rules" {
         preserve_query_string = false
         status_code           = 302
         target_url {
-          value = "https://${cloudflare_record.test.hostname}/"
+          value = "https://example.com/"
         }
       }
     }
-    description = "Redirect to Top for Overseas Users on ${cloudflare_record.test.hostname}"
+    description = "Redirect for Overseas Users on ${cloudflare_record.test.hostname}"
     enabled     = true
     expression  = <<-EOL
     (
@@ -36,11 +36,11 @@ resource "cloudflare_ruleset" "redirect_rules" {
         preserve_query_string = false
         status_code           = 302
         target_url {
-          value = "https://${cloudflare_record.www.hostname}/"
+          value = "https://example.com/"
         }
       }
     }
-    description = "Redirect to Top for Overseas Users on ${cloudflare_record.www.hostname}"
+    description = "Redirect for Overseas Users on ${cloudflare_record.www.hostname}"
     enabled     = true
     expression  = <<-EOL
     (
