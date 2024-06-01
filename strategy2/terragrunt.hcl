@@ -53,18 +53,18 @@ remote_state {
 # }
 
 # R2に保存するならこちら
-remote_state {
-  backend = "s3" 
-  config = {
-    encrypt                     = true
-    region                      = "ap-northeast-1a" # autoでも良さそう
-    bucket                      = "hoge-state"
-    key                         = "${local.service_name}-${local.module_name}/${path_relative_to_include()}/terraform.tfstate"
-    skip_credentials_validation = true # AWSの認証情報として検証しないようにする
-    endpoint                    = "https://${local.account_id}.r2.cloudflarestorage.com"
-  }
-  generate = {
-    path      = "backend.tf"
-    if_exists = "overwrite_terragrunt"
-  }
-}
+# remote_state {
+#   backend = "s3" 
+#   config = {
+#     encrypt                     = true
+#     region                      = "ap-northeast-1a" # autoでも良さそう
+#     bucket                      = "hoge-state"
+#     key                         = "${local.service_name}-${local.module_name}/${path_relative_to_include()}/terraform.tfstate"
+#     skip_credentials_validation = true # AWSの認証情報として検証しないようにする
+#     endpoint                    = "https://${local.account_id}.r2.cloudflarestorage.com"
+#   }
+#   generate = {
+#     path      = "backend.tf"
+#     if_exists = "overwrite_terragrunt"
+#   }
+# }
