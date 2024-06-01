@@ -1,0 +1,8 @@
+version: '3'
+services:
+  terraform:
+    image: alpine/terragrunt:latest
+    environment:
+      - CLOUDFLARE_API_TOKEN=${CLOUDFLARE_API_TOKEN}
+    volumes:
+      - .:/apps
