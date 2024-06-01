@@ -44,7 +44,8 @@ resource "cloudflare_ruleset" "cors_response_header" {
     expression  = <<-EOF
     (
       http.host eq "${cloudflare_record.test.hostname}" and
-      starts_with(http.request.uri.path, "/static/cors/"))
+      starts_with(http.request.uri.path, "/static/cors/")
+    )
     EOF
   }
   # 本番用(これくらいなら一緒にしちゃっても良いかもしれない)
@@ -82,7 +83,8 @@ resource "cloudflare_ruleset" "cors_response_header" {
     expression  = <<-EOF
     (
       http.host eq "${cloudflare_record.www.hostname}" and
-      starts_with(http.request.uri.path, "/static/cors/"))
+      starts_with(http.request.uri.path, "/static/cors/")
+    )
     EOF
   }
 }
